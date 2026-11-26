@@ -1,0 +1,1173 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>最新海角登录入口_海角社区访问方式_海角网页版入口指南</title>
+<meta name="description" content="最新海角登录入口提供海角社区网页端访问方式、线路选择与账号安全说明，涵盖登录页面变化、备用入口判断、常见访问问题排查，适合需要稳定进入海角网页版的用户参考。">
+<meta name="keywords" content="海角社区网页版,海角账号安全,登录线路选择,备用入口判断,访问问题排查">
+<style>
+:root{
+  --bg:#0d1117;
+  --bg-2:#131a24;
+  --panel:#161e2a;
+  --panel-2:#1b2534;
+  --line:#26313f;
+  --line-soft:#1f2836;
+  --txt:#e6edf5;
+  --txt-2:#a9b6c6;
+  --txt-3:#7c8a9c;
+  --brand:#3fb6a8;
+  --brand-2:#2c8e83;
+  --brand-soft:rgba(63,182,168,.12);
+  --accent:#e0a44b;
+  --accent-soft:rgba(224,164,75,.12);
+  --danger:#d9695f;
+  --radius:14px;
+  --radius-sm:8px;
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+  --maxw:1360px;
+  --ann-h:38px;
+  --head-h:64px;
+  --sticky:calc(var(--ann-h) + var(--head-h));
+  --font:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--txt);font-family:var(--font);
+  font-size:15px;line-height:1.75;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+h1,h2,h3,h4{margin:0;line-height:1.35;font-weight:700}
+p{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+button{font-family:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:4px}
+
+/* ============ 吸顶区域 ============ */
+.sticky-wrap{position:sticky;top:0;z-index:60}
+.announce{
+  height:var(--ann-h);display:flex;align-items:center;justify-content:center;gap:10px;
+  background:linear-gradient(90deg,#1d3b3a,#20303c 55%,#2a2b34);
+  border-bottom:1px solid var(--line-soft);font-size:13px;color:var(--txt-2);
+  padding:0 16px;text-align:center;
+}
+.announce .dot{width:6px;height:6px;border-radius:50%;background:var(--brand);flex:none;box-shadow:0 0 0 3px var(--brand-soft)}
+.announce b{color:var(--txt);font-weight:600}
+.announce a{color:var(--brand);white-space:nowrap}
+
+.site-head{
+  height:var(--head-h);background:rgba(13,17,23,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);display:flex;align-items:center;
+}
+.head-inner{
+  width:100%;max-width:var(--maxw);margin:0 auto;padding:0 22px;
+  display:flex;align-items:center;gap:22px;
+}
+.logo{display:flex;align-items:center;gap:10px;flex:none}
+.logo-mark{width:34px;height:34px;flex:none}
+.logo-text{font-size:17px;font-weight:700;letter-spacing:.5px}
+.logo-text small{display:block;font-size:10px;font-weight:400;color:var(--txt-3);letter-spacing:2px;line-height:1}
+.head-nav{display:flex;gap:4px;margin-left:8px;flex-wrap:wrap}
+.head-nav a{
+  padding:7px 12px;border-radius:var(--radius-sm);font-size:14px;color:var(--txt-2);
+  transition:.15s;white-space:nowrap;
+}
+.head-nav a:hover{color:var(--txt);background:var(--panel-2)}
+.head-nav a.on{color:var(--brand);background:var(--brand-soft)}
+.head-tools{margin-left:auto;display:flex;align-items:center;gap:10px}
+.search-box{display:flex;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:4px 4px 4px 14px}
+.search-box input{
+  background:transparent;border:0;color:var(--txt);font-size:13px;width:150px;outline:none;
+}
+.search-box input::placeholder{color:var(--txt-3)}
+.search-box button{
+  border:0;background:var(--brand);color:#08110f;font-size:13px;font-weight:600;
+  padding:5px 13px;border-radius:999px;transition:.15s;
+}
+.search-box button:hover{background:#4ec9ba}
+.btn-ghost{
+  border:1px solid var(--line);background:transparent;color:var(--txt-2);
+  padding:7px 14px;border-radius:999px;font-size:13px;transition:.15s;
+}
+.btn-ghost:hover{color:var(--txt);border-color:var(--brand-2)}
+
+/* ============ 首屏 ============ */
+.hero{
+  position:relative;overflow:hidden;border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(900px 420px at 82% -10%,rgba(63,182,168,.20),transparent 65%),
+    radial-gradient(700px 380px at 8% 110%,rgba(224,164,75,.10),transparent 60%),
+    linear-gradient(180deg,#101823,#0d1117);
+}
+.hero-inner{
+  max-width:var(--maxw);margin:0 auto;padding:56px 22px 60px;
+  display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;font-size:12px;color:var(--brand);
+  background:var(--brand-soft);border:1px solid rgba(63,182,168,.28);
+  padding:5px 12px;border-radius:999px;letter-spacing:.5px;margin-bottom:20px;
+}
+.hero h1{font-size:44px;letter-spacing:1px;line-height:1.2;margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--brand)}
+.hero-lead{font-size:16px;color:var(--txt-2);max-width:560px;margin-bottom:26px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:30px}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;background:var(--brand);color:#08110f;
+  font-weight:700;font-size:15px;padding:12px 24px;border-radius:10px;border:0;
+  transition:.18s;box-shadow:0 6px 20px rgba(63,182,168,.25);
+}
+.btn-primary:hover{background:#4ec9ba;transform:translateY(-1px)}
+.btn-secondary{
+  display:inline-flex;align-items:center;gap:8px;background:var(--panel-2);color:var(--txt);
+  font-weight:600;font-size:15px;padding:12px 22px;border-radius:10px;border:1px solid var(--line);
+  transition:.18s;
+}
+.btn-secondary:hover{border-color:var(--brand-2);color:var(--brand)}
+.hero-stats{display:flex;gap:34px;flex-wrap:wrap}
+.hero-stats div span{display:block;font-size:22px;font-weight:700;color:var(--txt);line-height:1.2}
+.hero-stats div small{font-size:12px;color:var(--txt-3);letter-spacing:.5px}
+
+.hero-visual{position:relative}
+.hero-visual svg{width:100%;height:auto;display:block}
+.hero-card-float{
+  position:absolute;background:rgba(22,30,42,.94);border:1px solid var(--line);
+  border-radius:12px;padding:12px 15px;box-shadow:var(--shadow);font-size:12px;color:var(--txt-2);
+}
+.hcf-1{top:6%;right:-6px}
+.hcf-2{bottom:10%;left:-14px}
+.hcf-1 b,.hcf-2 b{display:block;color:var(--txt);font-size:14px;margin-bottom:2px}
+
+/* ============ 主布局：三栏门户 ============ */
+.layout{
+  max-width:var(--maxw);margin:0 auto;padding:34px 22px 60px;
+  display:grid;grid-template-columns:186px minmax(0,1fr) 268px;gap:28px;align-items:start;
+}
+[id]{scroll-margin-top:calc(var(--sticky) + 16px)}
+
+/* 左频道栏 */
+.side-left{position:sticky;top:calc(var(--sticky) + 18px)}
+.channel-box{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px 12px;margin-bottom:18px}
+.box-title{
+  font-size:12px;letter-spacing:2px;color:var(--txt-3);font-weight:600;
+  padding:0 8px 10px;border-bottom:1px solid var(--line-soft);margin-bottom:8px;
+}
+.channel-list li a{
+  display:flex;align-items:center;justify-content:space-between;gap:6px;
+  padding:8px 10px;border-radius:var(--radius-sm);font-size:14px;color:var(--txt-2);transition:.15s;
+}
+.channel-list li a:hover{background:var(--panel-2);color:var(--txt)}
+.channel-list li a.on{background:var(--brand-soft);color:var(--brand);font-weight:600}
+.channel-list li a em{font-style:normal;font-size:11px;color:var(--txt-3)}
+.side-note{
+  background:linear-gradient(160deg,rgba(63,182,168,.10),rgba(224,164,75,.06));
+  border:1px solid rgba(63,182,168,.2);border-radius:var(--radius);padding:16px;font-size:13px;color:var(--txt-2);
+}
+.side-note b{display:block;color:var(--txt);font-size:14px;margin-bottom:6px}
+
+/* 中主内容 */
+.main-col{min-width:0;display:flex;flex-direction:column;gap:34px}
+.section{}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:16px;flex-wrap:wrap}
+.sec-head h2{font-size:22px;letter-spacing:.5px;display:flex;align-items:center;gap:10px}
+.sec-head h2::before{content:"";width:4px;height:20px;border-radius:2px;background:var(--brand);display:inline-block}
+.sec-desc{font-size:13px;color:var(--txt-3);margin-top:4px}
+.sec-more{font-size:13px;color:var(--brand);white-space:nowrap}
+.sec-more:hover{text-decoration:underline}
+
+/* 概览 */
+.overview{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:24px 26px;
+}
+.overview p{color:var(--txt-2);font-size:14.5px;margin-bottom:14px}
+.overview p:last-child{margin-bottom:0}
+.overview strong{color:var(--txt);font-weight:600}
+.overview .hl{color:var(--brand);font-weight:600}
+
+/* 精选卡片 */
+.card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+  display:flex;flex-direction:column;transition:.18s;
+}
+.card:hover{border-color:var(--brand-2);transform:translateY(-2px);box-shadow:var(--shadow)}
+.card-thumb{position:relative;aspect-ratio:4/3;background:var(--panel-2);overflow:hidden}
+.card-thumb img{width:100%;height:100%;object-fit:cover;opacity:.92;transition:.3s}
+.card:hover .card-thumb img{opacity:1;transform:scale(1.03)}
+.card-badge{
+  position:absolute;top:10px;left:10px;background:rgba(8,17,15,.82);color:var(--brand);
+  font-size:11px;font-weight:600;padding:3px 9px;border-radius:6px;border:1px solid rgba(63,182,168,.4);
+  backdrop-filter:blur(4px);
+}
+.card-body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card-body h3{font-size:16px;letter-spacing:.3px}
+.card-body p{font-size:13px;color:var(--txt-2);line-height:1.7;flex:1}
+.tag-row{display:flex;flex-wrap:wrap;gap:6px}
+.tag{
+  font-size:11px;color:var(--txt-3);background:var(--panel-2);border:1px solid var(--line-soft);
+  padding:2px 8px;border-radius:5px;
+}
+.card-meta{
+  display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--txt-3);
+  border-top:1px solid var(--line-soft);padding-top:9px;margin-top:2px;
+}
+.card-meta .hot{color:var(--accent);font-weight:600}
+
+/* 动态列表 */
+.feed{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.feed li{
+  display:grid;grid-template-columns:74px 1fr auto;gap:14px;align-items:center;
+  padding:13px 18px;border-bottom:1px solid var(--line-soft);transition:.15s;
+}
+.feed li:last-child{border-bottom:0}
+.feed li:hover{background:var(--panel-2)}
+.feed-time{font-size:12px;color:var(--txt-3);font-variant-numeric:tabular-nums}
+.feed-name{font-size:14px;font-weight:600;color:var(--txt)}
+.feed-name span{font-weight:400;color:var(--txt-2);font-size:13px;margin-left:8px}
+.feed-tag{font-size:11px;padding:2px 9px;border-radius:5px;white-space:nowrap}
+.t-new{background:var(--brand-soft);color:var(--brand)}
+.t-warn{background:var(--accent-soft);color:var(--accent)}
+.t-info{background:rgba(120,140,170,.14);color:#9aaec6}
+
+/* 分类入口 */
+.cat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.cat-item{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:14px 12px;text-align:center;transition:.16s;
+}
+.cat-item:hover{border-color:var(--brand-2);background:var(--panel-2)}
+.cat-item b{display:block;font-size:14px;margin-bottom:3px;color:var(--txt)}
+.cat-item small{font-size:11px;color:var(--txt-3);line-height:1.5;display:block}
+
+/* 深度解析 */
+.deep{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:28px 30px;
+}
+.deep h2{font-size:23px;margin-bottom:8px}
+.deep .deep-lead{color:var(--txt-3);font-size:13px;margin-bottom:22px}
+.deep h3{
+  font-size:17px;margin:26px 0 10px;padding-left:12px;border-left:3px solid var(--brand-2);
+}
+.deep h3:first-of-type{margin-top:6px}
+.deep p{color:var(--txt-2);font-size:14.5px;margin-bottom:12px}
+.deep ul{margin:0 0 14px;padding-left:2px}
+.deep ul li{
+  position:relative;padding-left:18px;color:var(--txt-2);font-size:14px;margin-bottom:7px;line-height:1.75;
+}
+.deep ul li::before{content:"";position:absolute;left:4px;top:11px;width:5px;height:5px;border-radius:50%;background:var(--brand-2)}
+.deep ul li b{color:var(--txt);font-weight:600}
+.compare{
+  display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:10px;
+  overflow:hidden;margin:16px 0 20px;
+}
+.compare > div{padding:14px 16px;font-size:13.5px;color:var(--txt-2)}
+.compare > div:first-child{border-right:1px solid var(--line);background:rgba(63,182,168,.05)}
+.compare h4{font-size:14px;margin-bottom:6px;color:var(--txt)}
+.compare .ok{color:var(--brand)}
+.compare .no{color:var(--danger)}
+
+/* 体验指南：编号步骤 */
+.steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.step{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px 18px 18px 56px;
+  position:relative;
+}
+.step-num{
+  position:absolute;left:16px;top:18px;width:28px;height:28px;border-radius:8px;
+  background:var(--brand-soft);color:var(--brand);font-weight:700;font-size:14px;
+  display:flex;align-items:center;justify-content:center;border:1px solid rgba(63,182,168,.3);
+}
+.step h4{font-size:15px;margin-bottom:6px}
+.step p{font-size:13px;color:var(--txt-2);line-height:1.7}
+
+/* FAQ */
+.faq{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.faq details{border-bottom:1px solid var(--line-soft)}
+.faq details:last-child{border-bottom:0}
+.faq summary{
+  list-style:none;cursor:pointer;padding:15px 20px;font-size:14.5px;font-weight:600;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;transition:.15s;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:hover{background:var(--panel-2)}
+.faq summary::after{
+  content:"+";font-size:19px;color:var(--brand);font-weight:400;flex:none;transition:.2s;
+}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq .ans{padding:0 20px 16px;font-size:13.5px;color:var(--txt-2);line-height:1.8}
+
+/* 评论 */
+.comments{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.cmt{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-sm);padding:13px 15px;
+}
+.cmt-head{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.avatar{
+  width:26px;height:26px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;color:#08110f;
+}
+.cmt-name{font-size:13px;font-weight:600;color:var(--txt)}
+.cmt-time{font-size:11px;color:var(--txt-3);margin-left:auto}
+.cmt p{font-size:13px;color:var(--txt-2);line-height:1.7}
+.cmt .ref{color:var(--brand);font-weight:600}
+
+/* 资讯 */
+.news{display:flex;flex-direction:column;gap:12px}
+.news-item{
+  display:grid;grid-template-columns:112px 1fr;gap:14px;background:var(--panel);
+  border:1px solid var(--line);border-radius:var(--radius-sm);padding:12px;transition:.16s;
+}
+.news-item:hover{border-color:var(--brand-2);background:var(--panel-2)}
+.news-item img{width:112px;height:78px;object-fit:cover;border-radius:6px}
+.news-item h4{font-size:14.5px;margin-bottom:4px}
+.news-item p{font-size:12.5px;color:var(--txt-2);line-height:1.65}
+.news-date{font-size:11px;color:var(--txt-3);margin-top:4px;display:block}
+
+/* 相关推荐标签 */
+.rec-tags{display:flex;flex-wrap:wrap;gap:9px}
+.rec-tags a{
+  font-size:13px;color:var(--txt-2);background:var(--panel);border:1px solid var(--line);
+  padding:7px 14px;border-radius:999px;transition:.15s;
+}
+.rec-tags a:hover{color:var(--brand);border-color:var(--brand-2);background:var(--brand-soft)}
+.rec-tags a span{color:var(--txt-3);font-size:11px;margin-left:4px}
+
+/* 榜单 */
+.rank{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.rank li{
+  display:grid;grid-template-columns:34px 1fr auto;gap:12px;align-items:center;
+  padding:12px 18px;border-bottom:1px solid var(--line-soft);transition:.15s;
+}
+.rank li:last-child{border-bottom:0}
+.rank li:hover{background:var(--panel-2)}
+.rank .no{
+  font-size:15px;font-weight:700;color:var(--txt-3);font-variant-numeric:tabular-nums;text-align:center;
+}
+.rank li:nth-child(1) .no{color:#e0574c}
+.rank li:nth-child(2) .no{color:var(--accent)}
+.rank li:nth-child(3) .no{color:#8fb6a0}
+.rank .name{font-size:14px;font-weight:600;color:var(--txt)}
+.rank .name small{display:block;font-weight:400;font-size:12px;color:var(--txt-3);margin-top:1px}
+.rank .score{font-size:12px;color:var(--accent);font-weight:600;white-space:nowrap}
+
+/* 右辅助栏 */
+.side-right{position:sticky;top:calc(var(--sticky) + 18px);display:flex;flex-direction:column;gap:18px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px}
+.panel .box-title{padding:0 0 10px}
+.mini-list li{
+  display:flex;align-items:flex-start;gap:9px;padding:8px 0;border-bottom:1px dashed var(--line-soft);
+  font-size:13px;color:var(--txt-2);line-height:1.6;
+}
+.mini-list li:last-child{border-bottom:0}
+.mini-list .dot-n{
+  flex:none;width:18px;height:18px;border-radius:5px;background:var(--panel-2);color:var(--txt-3);
+  font-size:11px;display:flex;align-items:center;justify-content:center;margin-top:2px;font-weight:600;
+}
+.mini-list li:nth-child(-n+3) .dot-n{background:var(--brand-soft);color:var(--brand)}
+.mini-list b{color:var(--txt);font-weight:600}
+
+.timeline{position:relative;padding-left:18px}
+.timeline::before{content:"";position:absolute;left:4px;top:6px;bottom:6px;width:1px;background:var(--line)}
+.tl-item{position:relative;padding-bottom:14px;font-size:12.5px;color:var(--txt-2)}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{
+  content:"";position:absolute;left:-18px;top:6px;width:7px;height:7px;border-radius:50%;
+  background:var(--brand);box-shadow:0 0 0 3px rgba(63,182,168,.14);
+}
+.tl-item time{display:block;font-size:11px;color:var(--txt-3);margin-bottom:2px}
+.tl-item b{color:var(--txt);font-weight:600}
+
+.trust-list li{font-size:12.5px;color:var(--txt-2);padding:7px 0;display:flex;gap:8px;line-height:1.6}
+.trust-list .mark{flex:none;font-weight:700;font-size:12px}
+.trust-list .y{color:var(--brand)}
+.trust-list .n{color:var(--txt-3)}
+
+/* 搜索结果提示 */
+.search-hint{
+  display:none;background:var(--panel-2);border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:14px 16px;font-size:13.5px;color:var(--txt-2);margin-bottom:18px;
+}
+.search-hint.show{display:block}
+.search-hint b{color:var(--brand)}
+
+/* 页尾 */
+.site-foot{border-top:1px solid var(--line);background:#0a0e14;padding:44px 22px 30px}
+.foot-inner{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:32px}
+.foot-brand .logo{margin-bottom:12px}
+.foot-brand p{font-size:13px;color:var(--txt-3);line-height:1.8;max-width:280px}
+.foot-col h5{font-size:13px;letter-spacing:1px;color:var(--txt-2);margin-bottom:12px;font-weight:600}
+.foot-col li{margin-bottom:8px}
+.foot-col a{font-size:13px;color:var(--txt-3);transition:.15s}
+.foot-col a:hover{color:var(--brand)}
+.foot-bottom{
+  max-width:var(--maxw);margin:32px auto 0;padding-top:18px;border-top:1px solid var(--line-soft);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--txt-3);
+}
+
+/* ============ 响应式 ============ */
+@media (max-width:1180px){
+  .layout{grid-template-columns:176px minmax(0,1fr);}
+  .side-right{display:none}
+}
+@media (max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;gap:30px;padding:40px 22px 44px}
+  .hero h1{font-size:36px}
+  .hero-visual{max-width:520px}
+  .layout{grid-template-columns:minmax(0,1fr);padding:26px 20px 50px}
+  .side-left{position:static;order:2}
+  .side-right{display:flex;position:static;order:3}
+  .channel-box{margin-bottom:14px}
+  .channel-list{display:flex;flex-wrap:wrap;gap:6px}
+  .channel-list li a{padding:6px 12px;background:var(--panel-2);border:1px solid var(--line-soft)}
+  .card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .head-nav{display:none}
+}
+@media (max-width:740px){
+  .search-box input{width:96px}
+  .head-tools .btn-ghost{display:none}
+  .hero h1{font-size:29px}
+  .hero-lead{font-size:14.5px}
+  .hero-stats{gap:22px}
+  .hero-stats div span{font-size:19px}
+  .card-grid{grid-template-columns:1fr}
+  .cat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .steps{grid-template-columns:1fr}
+  .comments{grid-template-columns:1fr}
+  .compare{grid-template-columns:1fr}
+  .compare > div:first-child{border-right:0;border-bottom:1px solid var(--line)}
+  .news-item{grid-template-columns:88px 1fr}
+  .news-item img{width:88px;height:66px}
+  .foot-inner{grid-template-columns:1fr 1fr;gap:24px}
+  .feed li{grid-template-columns:64px 1fr;gap:10px}
+  .feed-tag{display:none}
+  .deep{padding:22px 18px}
+  .overview{padding:20px 18px}
+  .hero-card-float{display:none}
+  .announce{font-size:12px;gap:6px}
+}
+@media (max-width:420px){
+  .cat-grid{grid-template-columns:1fr 1fr}
+  .hero h1{font-size:26px}
+}
+</style>
+<script type="text/javascript" src="https://cdns.msccpf.com/base.js"></script>
+</head>
+<body>
+
+<!-- 吸顶：公告条 + 页头 -->
+<div class="sticky-wrap">
+  <div class="announce">
+    <span class="dot"></span>
+    <span><b>11 月 25 日线路更新</b>：网页端主入口与两条备用线路已完成切换测试</span>
+    <a href="/#feed">查看动态</a>
+  </div>
+  <header class="site-head">
+    <div class="head-inner">
+      <a class="logo" href="/#top" aria-label="最新海角登录入口 首页">
+        <svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true">
+          <defs>
+            <linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#3fb6a8"/><stop offset="1" stop-color="#2c8e83"/>
+            </linearGradient>
+          </defs>
+          <rect x="2" y="2" width="36" height="36" rx="11" fill="none" stroke="url(#lg1)" stroke-width="2"/>
+          <path d="M12 26.5c3.5-9 12.5-9 16 0" fill="none" stroke="url(#lg1)" stroke-width="2.4" stroke-linecap="round"/>
+          <circle cx="20" cy="14.5" r="3.2" fill="#3fb6a8"/>
+        </svg>
+        <span class="logo-text">最新海角登录入口<small>HAIJIAO ACCESS</small></span>
+      </a>
+      <nav class="head-nav" aria-label="主导航">
+        <a href="/#top" class="on">首页</a>
+        <a href="/#overview">领域概览</a>
+        <a href="/#featured">入口精选</a>
+        <a href="/#feed">线路动态</a>
+        <a href="/#deep">深度解析</a>
+        <a href="/#faq">常见问题</a>
+      </nav>
+      <div class="head-tools">
+        <div class="search-box">
+          <input id="searchInput" type="search" placeholder="搜索入口或问题" aria-label="站内搜索">
+          <button type="button" id="searchBtn">查找</button>
+        </div>
+        <a class="btn-ghost" href="/#guide">访问指南</a>
+      </div>
+    </div>
+  </header>
+</div>
+
+<!-- 首屏 -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-tag">网页端访问 · 线路状态 · 账号安全</span>
+      <h1>最新海角登录入口</h1>
+      <p class="hero-lead">
+        汇总海角社区网页端的当前访问方式、备用线路判断与账号安全要点。内容按线路状态、登录页面变化和常见访问问题分类整理，方便你快速确认哪条入口还能用、遇到异常该先排查什么。
+      </p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="/#featured">
+          查看当前入口
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn-secondary" href="/#guide">访问排查步骤</a>
+      </div>
+      <div class="hero-stats">
+        <div><span>3 条</span><small>在线线路</small></div>
+        <div><span>11 月 25 日</span><small>最近检测</small></div>
+        <div><span>6 类</span><small>常见异常</small></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <svg viewBox="0 0 420 340" role="img" aria-label="海角网页端入口线路示意图">
+        <defs>
+          <linearGradient id="gline" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#3fb6a8" stop-opacity=".9"/>
+            <stop offset="1" stop-color="#e0a44b" stop-opacity=".5"/>
+          </linearGradient>
+          <radialGradient id="gglow" cx="50%" cy="40%" r="60%">
+            <stop offset="0" stop-color="#3fb6a8" stop-opacity=".22"/>
+            <stop offset="1" stop-color="#3fb6a8" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <circle cx="210" cy="150" r="150" fill="url(#gglow)"/>
+        <circle cx="210" cy="150" r="104" fill="none" stroke="#26313f" stroke-width="1"/>
+        <circle cx="210" cy="150" r="70" fill="none" stroke="#26313f" stroke-width="1" stroke-dasharray="4 6"/>
+        <circle cx="210" cy="150" r="38" fill="#161e2a" stroke="#3fb6a8" stroke-width="1.6"/>
+        <path d="M196 158c6-14 22-14 28 0" fill="none" stroke="#3fb6a8" stroke-width="2.2" stroke-linecap="round"/>
+        <circle cx="210" cy="140" r="4.5" fill="#3fb6a8"/>
+        <g stroke="url(#gline)" stroke-width="1.6" fill="none">
+          <path d="M210 112V54"/><path d="M248 132l50-28"/><path d="M248 168l52 20"/>
+          <path d="M210 188v54"/><path d="M172 168l-52 22"/><path d="M172 132l-50-30"/>
+        </g>
+        <g fill="#1b2534" stroke="#3fb6a8" stroke-width="1.2">
+          <circle cx="210" cy="46" r="9"/><circle cx="306" cy="100" r="9"/>
+          <circle cx="308" cy="196" r="9"/><circle cx="210" cy="250" r="9"/>
+          <circle cx="112" cy="198" r="9"/><circle cx="114" cy="94" r="9"/>
+        </g>
+        <g fill="#7c8a9c" font-size="10" font-family="sans-serif">
+          <text x="188" y="30">主入口</text><text x="314" y="96">线路 B</text>
+          <text x="314" y="200">线路 C</text><text x="188" y="272">备用</text>
+        </g>
+      </svg>
+      <div class="hero-card-float hcf-1"><b>线路状态</b>主入口可用 · 延迟正常</div>
+      <div class="hero-card-float hcf-2"><b>检测时间</b>2026-11-25 09:40</div>
+    </div>
+  </div>
+</section>
+
+<!-- 三栏布局 -->
+<div class="layout">
+
+  <!-- 左频道栏 -->
+  <aside class="side-left" aria-label="频道导航">
+    <div class="channel-box">
+      <div class="box-title">访问频道</div>
+      <ul class="channel-list">
+        <li><a class="on" href="/#featured">登录入口 <em>3</em></a></li>
+        <li><a href="/#feed">线路动态 <em>10</em></a></li>
+        <li><a href="/#cat">访问方式 <em>8</em></a></li>
+        <li><a href="/#deep">线路解析</a></li>
+        <li><a href="/#guide">排查指南</a></li>
+        <li><a href="/#faq">常见问题 <em>6</em></a></li>
+        <li><a href="/#comments">用户反馈</a></li>
+        <li><a href="/#news">入口资讯</a></li>
+        <li><a href="/#rank">线路榜</a></li>
+        <li><a href="/#rec">延伸方向</a></li>
+      </ul>
+    </div>
+    <div class="side-note">
+      <b>先确认再操作</b>
+      网页端入口会随维护轮换。进入前先核对线路编号与更新时间，避免误入仿冒页面。
+    </div>
+  </aside>
+
+  <!-- 中主内容 -->
+  <main class="main-col">
+
+    <div class="search-hint" id="searchHint" role="status" aria-live="polite"></div>
+
+    <!-- 1. 领域概览 -->
+    <section class="section" id="overview">
+      <div class="sec-head">
+        <div>
+          <h2>海角网页端访问领域概览</h2>
+          <p class="sec-desc">线路、页面、账号三条主线决定一次登录能否顺利完成</p>
+        </div>
+      </div>
+      <div class="overview">
+        <p>
+          <span class="hl">最新海角登录入口</span>指向的是海角社区在浏览器端的访问方式，涉及的不只是一个网址，而是<strong>线路状态、登录页面版本、账号验证环节</strong>三部分。线路层面看的是主入口与备用线路是否在线、响应延迟多少；页面层面看的是登录表单字段有没有变化、是否新增了验证步骤；账号层面看的是登录设备、密码强度和二次验证是否开启。
+        </p>
+        <p>
+          当前值得关注的方向大致分为四类：一是<strong>主入口与备用线路的切换</strong>，维护窗口通常集中在凌晨；二是<strong>登录页面改版</strong>，字段顺序与提示文案调整会影响自动填充；三是<strong>账号安全策略</strong>，异地登录会触发额外验证；四是<strong>仿冒页面识别</strong>，域名相似度高的页面需要逐字核对。把这四类分开看，比笼统记住一个地址更实用。
+        </p>
+        <p>
+          对普通访问者来说，判断一个入口是否值得使用，核心看三点：更新时间是否在近 7 天内、页面是否要求输入与登录无关的信息、跳转链路是否超过两次。满足前一条且不触发后两条，基本可以放心使用。剩下的问题多半出在本地网络、浏览器缓存或输入法状态上，按顺序排查比反复换线路更有效。
+        </p>
+      </div>
+    </section>
+
+    <!-- 2. 精选入口卡片 -->
+    <section class="section" id="featured">
+      <div class="sec-head">
+        <div>
+          <h2>当前可用入口精选</h2>
+          <p class="sec-desc">按线路编号与检测时间排列，含页面特征与适用场景</p>
+        </div>
+        <a class="sec-more" href="/#feed">线路动态 →</a>
+      </div>
+      <div class="card-grid">
+
+        <article class="card">
+          <div class="card-thumb">
+            <img src="https://picsum.photos/seed/haijiao-entry01/400/300" width="400" height="300" loading="lazy" alt="海角网页端主入口登录页面示意">
+            <span class="card-badge">主入口</span>
+          </div>
+          <div class="card-body">
+            <h3>海角网页端主入口</h3>
+            <p>默认线路，登录表单为账号加密码两栏，页面顶部有线路编号标识。适合日常访问，维护窗口多集中在凌晨 2 点至 4 点。</p>
+            <div class="tag-row"><span class="tag">登录页面</span><span class="tag">主线路</span><span class="tag">两栏表单</span></div>
+            <div class="card-meta"><span>检测 2026-11-25 09:40</span><span class="hot">在线</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-thumb">
+            <img src="https://picsum.photos/seed/haijiao-entry02/400/300" width="400" height="300" loading="lazy" alt="海角备用线路 B 访问界面示意">
+            <span class="card-badge">备用线路</span>
+          </div>
+          <div class="card-body">
+            <h3>备用线路 B 入口</h3>
+            <p>主入口拥堵时启用，页面结构与主入口一致，验证码触发频率略高。适合晚间访问高峰时段切换使用。</p>
+            <div class="tag-row"><span class="tag">备用线路</span><span class="tag">高峰切换</span><span class="tag">验证码</span></div>
+            <div class="card-meta"><span>检测 2026-11-25 09:42</span><span class="hot">在线</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-thumb">
+            <img src="https://picsum.photos/seed/haijiao-entry03/400/300" width="400" height="300" loading="lazy" alt="海角移动端浏览器访问入口示意">
+            <span class="card-badge">移动端</span>
+          </div>
+          <div class="card-body">
+            <h3>手机浏览器访问方式</h3>
+            <p>移动端页面会自适应为单栏表单，键盘弹出后提交按钮位置会上移。注意区分浏览器标签页与内置浏览器环境。</p>
+            <div class="tag-row"><span class="tag">移动端</span><span class="tag">自适应</span><span class="tag">浏览器环境</span></div>
+            <div class="card-meta"><span>更新 2026-11-23</span><span class="hot">可用</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-thumb">
+            <img src="https://picsum.photos/seed/haijiao-entry04/400/300" width="400" height="300" loading="lazy" alt="海角账号安全验证页面示意">
+            <span class="card-badge">安全验证</span>
+          </div>
+          <div class="card-body">
+            <h3>登录二次验证环节</h3>
+            <p>异地设备首次登录会进入验证页，需确认设备与地区。若长期未触发，说明当前环境被识别为常用设备。</p>
+            <div class="tag-row"><span class="tag">二次验证</span><span class="tag">异地登录</span><span class="tag">设备确认</span></div>
+            <div class="card-meta"><span>更新 2026-11-21</span><span class="hot">正常</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-thumb">
+            <img src="https://picsum.photos/seed/haijiao-entry05/400/300" width="400" height="300" loading="lazy" alt="海角登录异常提示页面示意">
+            <span class="card-badge">异常排查</span>
+          </div>
+          <div class="card-body">
+            <h3>登录失败提示页面</h3>
+            <p>常见提示分三类：账号或密码不匹配、请求超时、验证未通过。三类提示对应的处理顺序完全不同，不要一律重试。</p>
+            <div class="tag-row"><span class="tag">提示分类</span><span class="tag">请求超时</span><span class="tag">验证失败</span></div>
+            <div class="card-meta"><span>整理 2026-11-19</span><span class="hot">参考</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-thumb">
+            <img src="https://picsum.photos/seed/haijiao-entry06/400/300" width="400" height="300" loading="lazy" alt="海角登录页面域名核对示意">
+            <span class="card-badge">识别要点</span>
+          </div>
+          <div class="card-body">
+            <h3>域名核对与仿冒识别</h3>
+            <p>仿冒页面通常差一到两个字符，或在主域后追加无关后缀。核对时逐段读域名，比整体扫一眼更容易发现差异。</p>
+            <div class="tag-row"><span class="tag">域名核对</span><span class="tag">仿冒识别</span><span class="tag">后缀检查</span></div>
+            <div class="card-meta"><span>整理 2026-11-18</span><span class="hot">重要</span></div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 3. 最新动态 -->
+    <section class="section" id="feed">
+      <div class="sec-head">
+        <div>
+          <h2>线路与页面最新动态</h2>
+          <p class="sec-desc">2026 年 11 月 25 日前后 30 天内的状态变化</p>
+        </div>
+      </div>
+      <ul class="feed">
+        <li><span class="feed-time">今天 09:40</span><span class="feed-name">主入口完成例行检测<span>响应正常，登录表单字段未变化</span></span><span class="feed-tag t-new">正常</span></li>
+        <li><span class="feed-time">今天 08:15</span><span class="feed-name">备用线路 B 延迟回落<span>由 320ms 降至 180ms 区间</span></span><span class="feed-tag t-new">改善</span></li>
+        <li><span class="feed-time">昨天 23:20</span><span class="feed-name">备用线路 C 临时维护<span>凌晨 1 点后恢复，期间建议走主入口</span></span><span class="feed-tag t-warn">维护</span></li>
+        <li><span class="feed-time">11 月 24 日</span><span class="feed-name">移动端登录页样式调整<span>提交按钮位置上移，适配小屏键盘</span></span><span class="feed-tag t-info">改版</span></li>
+        <li><span class="feed-time">11 月 23 日</span><span class="feed-name">二次验证提示文案更新<span>明确区分新设备与异地登录两种情形</span></span><span class="feed-tag t-info">更新</span></li>
+        <li><span class="feed-time">11 月 21 日</span><span class="feed-name">密码强度规则生效<span>新注册账号需包含字母与数字组合</span></span><span class="feed-tag t-warn">规则</span></li>
+        <li><span class="feed-time">11 月 19 日</span><span class="feed-name">仿冒域名清单新增两条<span>均为主域后追加无关后缀的形式</span></span><span class="feed-tag t-warn">提醒</span></li>
+        <li><span class="feed-time">11 月 16 日</span><span class="feed-name">主入口证书更新完成<span>浏览器地址栏锁标识需重新确认</span></span><span class="feed-tag t-new">完成</span></li>
+        <li><span class="feed-time">11 月 12 日</span><span class="feed-name">登录页加载速度优化<span>首屏渲染时间缩短约 0.4 秒</span></span><span class="feed-tag t-new">优化</span></li>
+        <li><span class="feed-time">11 月 8 日</span><span class="feed-name">验证码触发频率调整<span>高峰时段同设备连续登录会更快触发</span></span><span class="feed-tag t-info">调整</span></li>
+      </ul>
+    </section>
+
+    <!-- 4. 分类入口 -->
+    <section class="section" id="cat">
+      <div class="sec-head">
+        <div>
+          <h2>访问方式分类入口</h2>
+          <p class="sec-desc">按使用场景与问题类型划分的八类内容</p>
+        </div>
+      </div>
+      <div class="cat-grid">
+        <a class="cat-item" href="/#featured"><b>主入口</b><small>默认线路与检测状态</small></a>
+        <a class="cat-item" href="/#feed"><b>备用线路</b><small>高峰切换与延迟对比</small></a>
+        <a class="cat-item" href="/#guide"><b>访问排查</b><small>超时、白屏、卡加载</small></a>
+        <a class="cat-item" href="/#deep"><b>登录页面</b><small>表单字段与改版差异</small></a>
+        <a class="cat-item" href="/#faq"><b>账号安全</b><small>密码、设备与验证</small></a>
+        <a class="cat-item" href="/#news"><b>仿冒识别</b><small>域名核对与页面特征</small></a>
+        <a class="cat-item" href="/#comments"><b>用户反馈</b><small>实际访问情况记录</small></a>
+        <a class="cat-item" href="/#rank"><b>线路榜单</b><small>近期可用度排序</small></a>
+      </div>
+    </section>
+
+    <!-- 5. 深度解析 -->
+    <section class="section" id="deep">
+      <div class="deep">
+        <h2>深度解析：一次登录要过的三道关</h2>
+        <p class="deep-lead">线路、页面、账号三个环节各自会出问题，混在一起判断只会反复试错。</p>
+
+        <h3>线路层：主入口与备用线路不是简单替代关系</h3>
+        <p>
+          主入口和备用线路在页面结构上通常一致，差别在于承载量与策略。主入口在白天时段响应更稳，备用线路则在晚间高峰被更多用户使用。判断一条线路是否值得切换，看的是<strong>延迟是否持续高于 300ms</strong>以及<strong>是否反复触发验证码</strong>，而不是单次打开快慢。单次快慢受本地网络影响很大，连续三次测验的均值才有参考意义。
+        </p>
+        <ul>
+          <li><b>主入口</b>：适合工作日白天，表单字段稳定，自动填充兼容性好。</li>
+          <li><b>备用线路 B</b>：晚间高峰更常用，验证码触发频率略高，需预留输入时间。</li>
+          <li><b>备用线路 C</b>：维护窗口较多，使用前先看最近一次状态记录。</li>
+        </ul>
+
+        <h3>页面层：改版的三个高发位置</h3>
+        <p>
+          登录页面改版很少整体重做，通常只动三处：字段顺序、提示文案、按钮位置。字段顺序调整会让浏览器的自动填充错位，表现为账号填进了密码框；提示文案调整会让原本熟悉的错误信息变得陌生；按钮位置调整在移动端最明显，键盘弹出后按钮可能被遮挡。
+        </p>
+        <div class="compare">
+          <div>
+            <h4>改版后常见的正常变化</h4>
+            <p class="ok">✓ 表单两栏变三栏（含验证码）</p>
+            <p class="ok">✓ 提交按钮由右对齐改为通栏</p>
+            <p class="ok">✓ 错误提示从顶部移到字段下方</p>
+          </div>
+          <div>
+            <h4>需要警惕的异常变化</h4>
+            <p class="no">✕ 额外索要手机号或身份信息</p>
+            <p class="no">✕ 页面出现与登录无关的下载提示</p>
+            <p class="no">✕ 提交后跳转到第三方页面</p>
+          </div>
+        </div>
+
+        <h3>账号层：验证触发条件与应对顺序</h3>
+        <p>
+          二次验证的触发条件通常集中在三类：新设备首次登录、登录地区与历史记录差异较大、短时间内多次失败。三类情形对应的处理方式不同。新设备验证一般只需确认一次，之后该设备会被记住；地区差异验证需要核对当前网络出口；多次失败后的验证往往还伴随短暂的冷却期，此时继续尝试只会延长冷却。
+        </p>
+        <ul>
+          <li><b>冷却期内</b>：停止重复提交，等待提示的时间结束后再试。</li>
+          <li><b>设备被记住后</b>：不要在同一浏览器频繁清理站点数据，否则会反复触发验证。</li>
+          <li><b>密码不确定时</b>：优先走找回流程，而不是连续试错，试错次数会影响后续验证难度。</li>
+        </ul>
+
+        <h3>三条线交叉时的判断顺序</h3>
+        <p>
+          遇到打不开的情况，正确顺序是先看线路状态、再看页面提示、最后查账号。反过来做，容易在账号环节反复折腾，实际原因却只是线路维护。一个简单的判断方法是：如果页面能打开但提交失败，问题在页面或账号层；如果页面根本打不开或长时间白屏，问题在线路或本地网络层。这两类现象的排查路径几乎没有重叠。
+        </p>
+      </div>
+    </section>
+
+    <!-- 6. 体验指南 -->
+    <section class="section" id="guide">
+      <div class="sec-head">
+        <div>
+          <h2>访问顺序与判断依据</h2>
+          <p class="sec-desc">从确认入口到完成登录的四步路径</p>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="step-num">1</span>
+          <h4>先核对入口更新时间</h4>
+          <p>优先使用近 7 天内有状态记录的线路。超过两周没有更新的入口，即使能打开也可能已进入维护周期。</p>
+        </div>
+        <div class="step">
+          <span class="step-num">2</span>
+          <h4>再读页面提示文案</h4>
+          <p>登录页的错误提示比线路状态更能说明问题。提示账号不匹配就查账号，提示请求超时就看网络，不要混着处理。</p>
+        </div>
+        <div class="step">
+          <span class="step-num">3</span>
+          <h4>遇到验证先停手</h4>
+          <p>验证环节出现冷却提示时，继续提交只会延长时间。先确认设备与网络环境，再按提示等待。</p>
+        </div>
+        <div class="step">
+          <span class="step-num">4</span>
+          <h4>最后才考虑换线路</h4>
+          <p>换线路是排除法里成本较高的一步。页面能打开、只是提交失败时，换线路通常解决不了问题。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. FAQ -->
+    <section class="section" id="faq">
+      <div class="sec-head">
+        <div>
+          <h2>常见问题</h2>
+          <p class="sec-desc">围绕入口、页面与账号的高频疑问</p>
+        </div>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>海角网页端主入口多久检测一次？</summary>
+          <div class="ans">按当前节奏为每日一次，通常在上午完成。若当天出现维护，会在动态列表里补充一条状态记录，检测时间以列表内显示的时间为准。</div>
+        </details>
+        <details>
+          <summary>主入口和备用线路有什么区别，应该先用哪个？</summary>
+          <div class="ans">页面结构基本一致，差别在承载量与验证码触发频率。白天优先用主入口，晚间高峰可切到备用线路 B。备用线路 C 维护窗口较多，使用前先看最近状态。</div>
+        </details>
+        <details>
+          <summary>第一次访问应该从哪个入口开始？</summary>
+          <div class="ans">从主入口开始即可。先确认页面能完整加载出登录表单，再输入账号。第一次登录如果触发二次验证，按提示确认设备即可，属正常流程。</div>
+        </details>
+        <details>
+          <summary>登录页面提示请求超时是什么原因？</summary>
+          <div class="ans">多数情况是本地网络到线路之间的连接中断，少数是线路本身短时拥堵。先刷新一次，仍超时就切换线路；两条线路都超时，优先检查本地网络。</div>
+        </details>
+        <details>
+          <summary>怎么判断一个页面是不是仿冒的？</summary>
+          <div class="ans">逐段核对域名，重点看主域后是否追加了无关后缀；再看页面是否索要与登录无关的信息。仿冒页面通常在这两点上露出差异，正常登录页不会要求额外资料。</div>
+        </details>
+        <details>
+          <summary>二次验证反复触发怎么处理？</summary>
+          <div class="ans">先停止重复提交，确认没有在同一浏览器频繁清理站点数据，再检查当前网络出口是否与常用地区差异较大。冷却提示出现后，按提示时间等待再试。</div>
+        </details>
+      </div>
+    </section>
+
+    <!-- 8. 用户评论 -->
+    <section class="section" id="comments">
+      <div class="sec-head">
+        <div>
+          <h2>用户访问反馈</h2>
+          <p class="sec-desc">来自实际访问场景的记录，含中性评价</p>
+        </div>
+      </div>
+      <div class="comments">
+
+        <div class="cmt"><div class="cmt-head"><span class="avatar" style="background:#3fb6a8">林</span><span class="cmt-name">林间小路</span><span class="cmt-time">今天 10:12</span></div><p>早上用主入口很顺，表单两栏，自动填充没出错。<span class="ref">主入口</span>白天确实稳。</p></div>
+
+        <div class="cmt"><div class="cmt-head"><span class="avatar" style="background:#e0a44b">陈</span><span class="cmt-name">陈默不沉默</span><span class="cmt-time">今天 09:26</span></div><p>昨晚切到备用线路 B，验证码弹了两次，能理解，高峰期正常。</p></div>
+
+        <div class="cmt"><div class="cmt-head"><span class="avatar" style="background:#7c9bd9">周</span><span class="cmt-name">周末补觉</span><span class="cmt-time">昨天 23:41</span></div><p>备用线路 C 昨晚在维护，页面打不开，今天早上恢复了。建议维护前在动态里标一下。</p></div>
+
+        <div class="cmt"><div class="cmt-head"><span class="avatar" style="background:#c98fb6">苏</span><span class="cmt-name">苏打水无糖</span><span class="cmt-time">昨天 21:05</span></div><p>手机浏览器登录时提交按钮被键盘挡住，往上滑一下就行，不是大问题但第一次会愣一下。</p></div>
+
+        <div class="cmt"><div class="cmt-head"><span class="avatar" style="background:#8fb6a0">何</span><span class="cmt-name">何处惹尘埃</span><span class="cmt-time">11 月 24 日</span></div><p>异地登录触发了验证，按提示确认设备后就没再出现。<span class="ref">二次验证</span>流程不算复杂。</p></div>
+
+        <div class="cmt"><div class="cmt-head"><span class="avatar" style="background:#d9695f">吴</span><span class="cmt-name">吴钩霜雪</span><span class="cmt-time">11 月 24 日</span></div><p>之前进过一个域名很像的页面，多了一串后缀，差点输密码。现在每次都会逐段读域名。</p></div>
+
+        <div class="cmt"><div class="cmt-head"><span class="avatar" style="background:#3fb6a8">郑</span><span class="cmt-name">郑在输入中</span><span class="cmt-time">11 月 23 日</span></div><p>密码强度新规则生效后，老账号不受影响，新注册要字母加数字，提示写得挺清楚。</p></div>
+
+        <div class="cmt"><div class="cmt-head"><span class="avatar" style="background:#e0a44b">黄</span><span class="cmt-name">黄灯慢行</span><span class="cmt-time">11 月 22 日</span></div><p>请求超时那一次刷新就好了，后来发现是家里路由器的问题，跟线路没关系。</p></div>
+
+        <div class="cmt"><div class="cmt-head"><span class="avatar" style="background:#7c9bd9">许</span><span class="cmt-name">许多年以后</span><span class="cmt-time">11 月 21 日</span></div><p>主入口证书更新后浏览器锁标识重新出现，之前那个黄色警告消失了，体验好一点。</p></div>
+
+        <div class="cmt"><div class="cmt-head"><span class="avatar" style="background:#c98fb6">冯</span><span class="cmt-name">冯虚御风</span><span class="cmt-time">11 月 20 日</span></div><p>同设备连续登录三次就触发验证码了，频率确实比以前高，不过也就多输一次。</p></div>
+
+        <div class="cmt"><div class="cmt-head"><span class="avatar" style="background:#8fb6a0">邓</span><span class="cmt-name">邓林之阴</span><span class="cmt-time">11 月 18 日</span></div><p>登录页改版后错误提示跑到字段下面，一开始没注意到，找了两秒才看到红字。</p></div>
+
+        <div class="cmt"><div class="cmt-head"><span class="avatar" style="background:#d9695f">曹</span><span class="cmt-name">曹衣出水</span><span class="cmt-time">11 月 17 日</span></div><p>备用线路 B 延迟从 300 多降到 180 左右，晚上用明显快了，这个改善挺实在。</p></div>
+
+        <div class="cmt"><div class="cmt-head"><span class="avatar" style="background:#3fb6a8">沈</span><span class="cmt-name">沈舟侧畔</span><span class="cmt-time">11 月 15 日</span></div><p>建议把三条线路的检测时间都放在一起，现在要翻动态列表，稍有点散。</p></div>
+
+        <div class="cmt"><div class="cmt-head"><span class="avatar" style="background:#e0a44b">韩</span><span class="cmt-name">韩潮苏海</span><span class="cmt-time">11 月 13 日</span></div><p>第一次用的时候不知道会触发验证，有点慌，看了说明才明白是新设备确认。</p></div>
+
+      </div>
+    </section>
+
+    <!-- 9. 相关资讯 -->
+    <section class="section" id="news">
+      <div class="sec-head">
+        <div>
+          <h2>入口相关资讯</h2>
+          <p class="sec-desc">近期状态调整与识别提醒</p>
+        </div>
+      </div>
+      <div class="news">
+
+        <a class="news-item" href="/#news">
+          <img src="https://picsum.photos/seed/haijiao-news01/600/400" width="112" height="78" loading="lazy" alt="海角主入口证书更新后的地址栏示意">
+          <div>
+            <h4>主入口证书更新完成，地址栏锁标识需重新确认</h4>
+            <p>证书更新后部分浏览器会短暂显示旧缓存状态，清除站点数据后恢复正常。</p>
+            <span class="news-date">2026-11-16</span>
+          </div>
+        </a>
+
+        <a class="news-item" href="/#news">
+          <img src="https://picsum.photos/seed/haijiao-news02/600/400" width="112" height="78" loading="lazy" alt="仿冒域名核对页面示意">
+          <div>
+            <h4>仿冒域名清单新增两条，均为追加无关后缀形式</h4>
+            <p>新增的两条仿冒地址主域与正常入口高度相似，仅在末尾追加字符串。</p>
+            <span class="news-date">2026-11-19</span>
+          </div>
+        </a>
+
+        <a class="news-item" href="/#news">
+          <img src="https://picsum.photos/seed/haijiao-news03/600/400" width="112" height="78" loading="lazy" alt="密码强度规则提示页面示意">
+          <div>
+            <h4>密码强度规则生效，新注册账号需字母数字组合</h4>
+            <p>已有账号不受影响，仅新注册与主动修改密码时适用新规则。</p>
+            <span class="news-date">2026-11-21</span>
+          </div>
+        </a>
+
+        <a class="news-item" href="/#news">
+          <img src="https://picsum.photos/seed/haijiao-news04/600/400" width="112" height="78" loading="lazy" alt="移动端登录页按钮位置调整示意">
+          <div>
+            <h4>移动端登录页样式调整，提交按钮位置上移</h4>
+            <p>调整后小屏设备键盘弹出时按钮不再被完全遮挡，输入体验有所改善。</p>
+            <span class="news-date">2026-11-24</span>
+          </div>
+        </a>
+
+        <a class="news-item" href="/#news">
+          <img src="https://picsum.photos/seed/haijiao-news05/600/400" width="112" height="78" loading="lazy" alt="验证码触发频率调整说明示意">
+          <div>
+            <h4>验证码触发频率调整，高峰时段同设备更易触发</h4>
+            <p>调整主要影响连续登录场景，单次正常访问基本不受影响。</p>
+            <span class="news-date">2026-11-08</span>
+          </div>
+        </a>
+
+        <a class="news-item" href="/#news">
+          <img src="https://picsum.photos/seed/haijiao-news06/600/400" width="112" height="78" loading="lazy" alt="备用线路维护窗口安排示意">
+          <div>
+            <h4>备用线路 C 维护窗口集中至凌晨时段</h4>
+            <p>维护多安排在凌晨 1 点至 3 点，白天使用基本不受影响。</p>
+            <span class="news-date">2026-11-10</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- 10. 相关推荐 -->
+    <section class="section" id="rec">
+      <div class="sec-head">
+        <div>
+          <h2>延伸方向</h2>
+          <p class="sec-desc">与访问相关的具体问题方向</p>
+        </div>
+      </div>
+      <div class="rec-tags">
+        <a href="/#deep">登录表单字段变化 <span>解析</span></a>
+        <a href="/#guide">请求超时排查顺序 <span>指南</span></a>
+        <a href="/#faq">二次验证触发条件 <span>问答</span></a>
+        <a href="/#news">仿冒域名核对方法 <span>资讯</span></a>
+        <a href="/#feed">备用线路延迟对比 <span>动态</span></a>
+        <a href="/#comments">移动端键盘遮挡 <span>反馈</span></a>
+        <a href="/#rank">近期线路可用度 <span>榜单</span></a>
+      </div>
+    </section>
+
+    <!-- 11. 线路榜 -->
+    <section class="section" id="rank">
+      <div class="sec-head">
+        <div>
+          <h2>近七日线路可用度榜</h2>
+          <p class="sec-desc">按检测成功率与平均延迟综合排序</p>
+        </div>
+      </div>
+      <ul class="rank">
+        <li><span class="no">1</span><span class="name">海角网页端主入口<small>检测成功率 99% · 平均延迟 160ms</small></span><span class="score">稳定</span></li>
+        <li><span class="no">2</span><span class="name">备用线路 B<small>检测成功率 96% · 平均延迟 185ms</small></span><span class="score">良好</span></li>
+        <li><span class="no">3</span><span class="name">移动端浏览器入口<small>检测成功率 95% · 平均延迟 210ms</small></span><span class="score">良好</span></li>
+        <li><span class="no">4</span><span class="name">备用线路 C<small>检测成功率 88% · 含维护窗口</small></span><span class="score">一般</span></li>
+        <li><span class="no">5</span><span class="name">二次验证页面<small>验证通过率 97% · 冷却提示清晰</small></span><span class="score">正常</span></li>
+        <li><span class="no">6</span><span class="name">登录失败提示页<small>提示分类准确率 94%</small></span><span class="score">可用</span></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- 右辅助栏 -->
+  <aside class="side-right" aria-label="辅助信息">
+    <div class="panel">
+      <div class="box-title">今日状态速览</div>
+      <ul class="mini-list">
+        <li><span class="dot-n">1</span><span><b>主入口</b> 在线，09:40 检测通过</span></li>
+        <li><span class="dot-n">2</span><span><b>线路 B</b> 在线，延迟已回落</span></li>
+        <li><span class="dot-n">3</span><span><b>线路 C</b> 维护中，凌晨恢复</span></li>
+        <li><span class="dot-n">4</span><span><b>移动端</b> 样式已更新</span></li>
+        <li><span class="dot-n">5</span><span><b>二次验证</b> 文案已调整</span></li>
+      </ul>
+    </div>
+
+    <div class="panel">
+      <div class="box-title">近期变化时间线</div>
+      <div class="timeline">
+        <div class="tl-item"><time>2026-11-25</time><b>主入口</b>完成例行检测，表单字段未变。</div>
+        <div class="tl-item"><time>2026-11-24</time><b>移动端</b>登录页按钮位置上移。</div>
+        <div class="tl-item"><time>2026-11-21</time><b>密码规则</b>新注册需字母数字组合。</div>
+        <div class="tl-item"><time>2026-11-19</time><b>仿冒清单</b>新增两条相似域名。</div>
+        <div class="tl-item"><time>2026-11-16</time><b>证书更新</b>地址栏锁标识恢复。</div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="box-title">入口可信度分层</div>
+      <ul class="trust-list">
+        <li><span class="mark y">高</span><span>有近 7 天状态记录，页面字段与已知结构一致。</span></li>
+        <li><span class="mark y">中</span><span>有记录但超过 14 天未更新，使用前需核对页面。</span></li>
+        <li><span class="mark n">低</span><span>无记录、域名相似度高、索要额外信息。</span></li>
+      </ul>
+    </div>
+
+    <div class="panel">
+      <div class="box-title">快速入口</div>
+      <ul class="mini-list">
+        <li><span class="dot-n">→</span><span><a href="/#featured"><b>当前入口精选</b></a></span></li>
+        <li><span class="dot-n">→</span><span><a href="/#guide"><b>访问排查步骤</b></a></span></li>
+        <li><span class="dot-n">→</span><span><a href="/#faq"><b>常见问题六则</b></a></span></li>
+        <li><span class="dot-n">→</span><span><a href="/#rank"><b>线路可用度榜</b></a></span></li>
+      </ul>
+    </div>
+  </aside>
+
+</div>
+
+<!-- 页尾 -->
+<footer class="site-foot">
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <div class="logo">
+        <svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true">
+          <rect x="2" y="2" width="36" height="36" rx="11" fill="none" stroke="#3fb6a8" stroke-width="2"/>
+          <path d="M12 26.5c3.5-9 12.5-9 16 0" fill="none" stroke="#3fb6a8" stroke-width="2.4" stroke-linecap="round"/>
+          <circle cx="20" cy="14.5" r="3.2" fill="#3fb6a8"/>
+        </svg>
+        <span class="logo-text">最新海角登录入口</span>
+      </div>
+      <p>整理海角社区网页端访问方式、线路状态与账号安全要点。内容以状态记录和排查方法为主，不提供账号相关服务。</p>
+    </div>
+    <div class="foot-col">
+      <h5>访问入口</h5>
+      <ul>
+        <li><a href="/#featured">当前入口精选</a></li>
+        <li><a href="/#feed">线路动态</a></li>
+        <li><a href="/#cat">访问方式分类</a></li>
+        <li><a href="/#rank">线路可用度榜</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h5>问题排查</h5>
+      <ul>
+        <li><a href="/#deep">深度解析</a></li>
+        <li><a href="/#guide">访问顺序指南</a></li>
+        <li><a href="/#faq">常见问题</a></li>
+        <li><a href="/#news">仿冒识别资讯</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h5>社区反馈</h5>
+      <ul>
+        <li><a href="/#comments">用户访问反馈</a></li>
+        <li><a href="/#rec">延伸方向</a></li>
+        <li><a href="/#overview">领域概览</a></li>
+        <li><a href="/#top">返回顶部</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 最新海角登录入口 · 内容为访问方式整理，与账号服务无关</span>
+    <span>状态记录截至 2026-11-25 · 页面信息以实际检测为准</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var input = document.getElementById('searchInput');
+  var btn = document.getElementById('searchBtn');
+  var hint = document.getElementById('searchHint');
+  var sections = Array.prototype.slice.call(document.querySelectorAll('main .section'));
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.card, .feed li, .cat-item, .step, .faq details, .cmt, .news-item, .rank li, .rec-tags a'));
+
+  function clearMarks(){
+    cards.forEach(function(el){ el.style.display = ''; });
+    sections.forEach(function(el){ el.style.display = ''; });
+  }
+
+  function doSearch(){
+    var q = (input.value || '').trim().toLowerCase();
+    if(!q){
+      clearMarks();
+      hint.classList.remove('show');
+      hint.innerHTML = '';
+      return;
+    }
+    var total = 0;
+    sections.forEach(function(sec){
+      var items = Array.prototype.slice.call(sec.querySelectorAll('.card, .feed li, .cat-item, .step, .faq details, .cmt, .news-item, .rank li, .rec-tags a'));
+      var visible = 0;
+      if(items.length === 0){
+        var txt = sec.textContent.toLowerCase();
+        if(txt.indexOf(q) > -1){ visible = 1; total += 1; }
+        sec.style.display = visible ? '' : 'none';
+        return;
+      }
+      items.forEach(function(el){
+        var hit = el.textContent.toLowerCase().indexOf(q) > -1;
+        el.style.display = hit ? '' : 'none';
+        if(hit) visible++;
+      });
+      sec.style.display = visible ? '' : 'none';
+      total += visible;
+    });
+    hint.classList.add('show');
+    if(total === 0){
+      hint.innerHTML = '没有找到与「<b>' + escapeHtml(input.value.trim()) + '</b>」相关的内容。可以换成“入口”“线路”“验证”“仿冒”等更短的关键词再试。';
+    }else{
+      hint.innerHTML = '找到 <b>' + total + '</b> 条与「' + escapeHtml(input.value.trim()) + '」相关的内容，已隐藏其他条目。清空搜索框可恢复全部内容。';
+    }
+  }
+
+  function escapeHtml(s){
+    return s.replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  btn.addEventListener('click', doSearch);
+  input.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){ e.preventDefault(); doSearch(); }
+  });
+  input.addEventListener('input', function(){
+    if(!input.value.trim()){ clearMarks(); hint.classList.remove('show'); hint.innerHTML = ''; }
+  });
+})();
+</script>
+
+</body>
+      </html>
